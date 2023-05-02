@@ -13,11 +13,16 @@ export default {
     SearchBar,
     CardsContainer
   },
+  data(){
+    return{
+      store
+    }
+  },
   methods:{
     getApi(){
-      axios.get(store.apiUrl)
+      axios.get(store.apiUrl + '?num=105&offset=0')
       .then(result => {
-        store.resultArray = result.data;
+        store.resultArray = result.data.data;
         console.log(store.resultArray);
       })
     }

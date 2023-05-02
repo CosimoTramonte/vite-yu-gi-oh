@@ -1,17 +1,26 @@
 
 <script>
 export default {
-    name:"Card"
+    name:"Card",
+    props:{
+        name: String,
+        type: String,
+        img: Object,
+    }
 }
 </script>
 
 <template>
     <div class="ct-card">
-        <div>
-            <img src="https://images.ygoprodeck.com/images/cards/34541863.jpg" alt="">
+        <div class="divImage">
+            <img :src="img.image_url" :alt="name">
         </div>
-        <h3>Titolo 1</h3>
-        <h4>Titolo 2</h4>
+        <div class="divName">
+            <h6 class="fw-bold m-0">{{name}}</h6>
+        </div>
+        <div class="divType">
+            <p class="m-0">{{type}}</p>
+        </div>
     </div>
 </template>
 
@@ -21,14 +30,34 @@ export default {
     width: calc(100% / 5);
     margin-bottom: 40px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    div{
+    .divImage{
         width: 100%;
-        height: 80%;
+        margin-bottom: 10px;
+
+
         img{
             width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
     }
+
+    .divName{
+        width: 100%;
+
+        h6{
+            font-size: 18px;
+        }
+    }
+
+    .divType{
+        width: 100%;
+    }
+
 }
 
 </style>

@@ -25,15 +25,11 @@ export default {
     </div>
 
     <div class="row">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        <Card 
+        v-for="card in store.resultArray" :key="card.id" 
+        :img="card.card_images[0]"
+        :name="card.name"
+        :type="card.type"/>
     </div>
     
 
