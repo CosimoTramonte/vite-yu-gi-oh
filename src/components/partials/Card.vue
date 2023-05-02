@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <div class="ct-card">
+    <div class="ct-card p-0">
         <div class="divImage">
             <img :src="img.image_url" :alt="name">
         </div>
@@ -27,17 +27,24 @@ export default {
 <style lang="scss" scoped>
 
 .ct-card{
-    width: calc(100% / 5);
-    margin-bottom: 40px;
+    width: calc(100% / 5 - 20px);
+    margin: 0 10px 40px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #D48F38;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 0px 5px black;
 
     .divImage{
         width: 100%;
         margin-bottom: 10px;
+        transition: all 0.3s;
 
+        &:hover{
+            transform: scale(1.05);
+        }
 
         img{
             width: 100%;
@@ -48,9 +55,11 @@ export default {
 
     .divName{
         width: 100%;
+        padding: 0 2px;
 
         h6{
             font-size: 18px;
+            color: white;
         }
     }
 
