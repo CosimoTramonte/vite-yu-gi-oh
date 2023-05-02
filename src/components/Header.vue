@@ -21,10 +21,11 @@ export default {
     div{
         display: flex;
         align-items: center;
+        justify-content: center;
         padding: 20px;
 
         img{
-            width: 50px;
+            width: 180px;
         }
 
         h1{
