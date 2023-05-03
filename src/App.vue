@@ -51,7 +51,7 @@ export default {
 
   <div class="ct-container">
 
-    <SearchBar @startResearch="getApi" />
+    <SearchBar @startResearch="getApi"/>
     <Loading v-if="store.isLoading" />
 
     <div v-else>

@@ -1,7 +1,6 @@
 export default [
 "Effect Monster",
 "Flip Effect Monster",
-"Flip Tuner Effect Monster",
 "Gemini Monster",
 "Normal Monster",
 "Normal Tuner Monster",

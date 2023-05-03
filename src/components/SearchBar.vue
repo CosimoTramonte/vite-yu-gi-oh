@@ -18,8 +18,7 @@ export default {
 
 <div class="container d-flex p-4">
     <select v-model="store.type"  class="form-select">
-        <option value="" selected>Select type</option>
-        <option v-for="(option,index) in typeMenu" :key="index">{{ option }}</option>
+        <option v-for="(option,index) in typeMenu" :key="index" :value="option">{{ option }}</option>
     </select>
     <button class="btn btn-dark mx-3" @click="$emit('startResearch')">Search</button>
 </div>
