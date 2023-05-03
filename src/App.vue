@@ -4,6 +4,7 @@ import Header from "./components/Header.vue";
 import CardsContainer from "./components/CardsContainer.vue";
 import SearchBar from "./components/SearchBar.vue";
 import Footer from "./components/Footer.vue";
+import Loading from "./components/partials/Loading.vue";
 import {store} from "./data/store";
 import axios from "axios";
 
@@ -13,7 +14,8 @@ export default {
     Header,
     SearchBar,
     CardsContainer,
-    Footer
+    Footer,
+    Loading
   },
   data(){
     return{
@@ -22,6 +24,7 @@ export default {
   },
   methods:{
     getApi(){
+      store.isLoading = true;
       axios.get(store.apiUrl, {
         params:{
           num: store.cardNumber,
@@ -31,6 +34,7 @@ export default {
       .then(result => {
         store.resultArray = result.data.data;
         console.log(store.resultArray);
+        store.isLoading = false;
       })
     }
   },
@@ -43,10 +47,17 @@ export default {
 <template>
 
   <Header />
+
   <div class="ct-container">
+
     <SearchBar />
-    <CardsContainer />
-    <Footer @startSearch="getApi" />
+    <Loading v-if="store.isLoading" />
+
+    <div v-else>
+      <CardsContainer />
+      <Footer @startSearch="getApi" />
+    </div>
+
   </div>
 
 
