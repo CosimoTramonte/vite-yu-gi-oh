@@ -29,7 +29,7 @@ export default {
         v-for="card in store.resultArray" :key="card.id" 
         :img="card.card_images[0]"
         :name="card.name"
-        :type="card.archetype || card.type"/>
+        :type="card.type"/>
     </div>
     
 

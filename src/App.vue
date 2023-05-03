@@ -3,6 +3,7 @@
 import Header from "./components/Header.vue";
 import CardsContainer from "./components/CardsContainer.vue";
 import SearchBar from "./components/SearchBar.vue";
+import Footer from "./components/Footer.vue";
 import {store} from "./data/store";
 import axios from "axios";
 
@@ -11,7 +12,8 @@ export default {
   components:{
     Header,
     SearchBar,
-    CardsContainer
+    CardsContainer,
+    Footer
   },
   data(){
     return{
@@ -20,7 +22,12 @@ export default {
   },
   methods:{
     getApi(){
-      axios.get(store.apiUrl + '?num=100&offset=0')
+      axios.get(store.apiUrl, {
+        params:{
+          num: store.cardNumber,
+          offset: store.cardOffset
+        }
+      })
       .then(result => {
         store.resultArray = result.data.data;
         console.log(store.resultArray);
@@ -39,6 +46,7 @@ export default {
   <div class="ct-container">
     <SearchBar />
     <CardsContainer />
+    <Footer @startSearch="getApi" />
   </div>
 
 
