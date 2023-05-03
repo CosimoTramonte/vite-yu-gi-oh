@@ -27,14 +27,15 @@ export default {
       store.isLoading = true;
       axios.get(store.apiUrl, {
         params:{
+          type: store.type,
           num: store.cardNumber,
           offset: store.cardOffset
         }
       })
       .then(result => {
         store.resultArray = result.data.data;
-        console.log(store.resultArray);
         store.isLoading = false;
+        console.log(store.apiUrl);
       })
     }
   },
@@ -50,7 +51,7 @@ export default {
 
   <div class="ct-container">
 
-    <SearchBar />
+    <SearchBar @startResearch="getApi" />
     <Loading v-if="store.isLoading" />
 
     <div v-else>

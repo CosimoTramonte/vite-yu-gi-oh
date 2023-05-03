@@ -1,19 +1,27 @@
 
 <script>
+import {store} from "../data/store";
+import typeMenu from "../data/db";
+
 export default {
-    name: "SearchBar"
+    name: "SearchBar",
+    data(){
+        return{
+            store,
+            typeMenu
+        }
+    }
 }
 </script>
 
 <template>
 
-<div class="container p-4">
-    <select class="form-select">
-        <option selected>Select type</option>
-        <option value="1">Alin</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+<div class="container d-flex p-4">
+    <select v-model="store.type"  class="form-select">
+        <option value="" selected>Select type</option>
+        <option v-for="(option,index) in typeMenu" :key="index">{{ option }}</option>
     </select>
+    <button class="btn btn-dark mx-3" @click="$emit('startResearch')">Search</button>
 </div>
 
 
