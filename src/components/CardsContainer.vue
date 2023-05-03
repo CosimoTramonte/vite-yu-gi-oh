@@ -21,7 +21,7 @@ export default {
   <div class="container p-5">
 
     <div class="counterCard">
-        <p>Found NUMBER Cards</p>
+        <p>Found {{ store.resultArray.length }} Cards</p>
     </div>
 
     <div class="row">
@@ -29,7 +29,7 @@ export default {
         v-for="card in store.resultArray" :key="card.id" 
         :img="card.card_images[0]"
         :name="card.name"
-        :type="card.type"/>
+        :type="card.archetype || card.type"/>
     </div>
     
 
